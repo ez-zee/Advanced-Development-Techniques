@@ -11,4 +11,8 @@
     <None Remove="K2GUCM_ADT_2023241.Models\**" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\K2GUCM_ADT_2023241.Models\K2GUCM_ADT_2023241.Models.csproj" />
+  </ItemGroup>
+
 </Project>
