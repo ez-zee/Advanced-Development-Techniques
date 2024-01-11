@@ -12,6 +12,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="ConsoleMenu" Version="0.1.1" />
+    <PackageReference Include="ConsoleMenu-simple" Version="2.6.1" />
+    <PackageReference Include="ConsoleTools" Version="1.1.1" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.9" />
+    <PackageReference Include="System.Net.Http.Json" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\K2GUCM_ADT_2023241.Models\K2GUCM_ADT_2023241.Models.csproj" />
   </ItemGroup>
 
