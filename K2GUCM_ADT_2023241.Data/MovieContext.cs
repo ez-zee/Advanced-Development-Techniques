@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace K2GUCM_ADT_2023241.Data
 {
-    public class MovieContext : DbContext
+    public class MovieContext : DBContext
     {
         public MovieContext()
         {
