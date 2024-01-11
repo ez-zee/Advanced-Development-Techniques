@@ -41,5 +41,52 @@ namespace K2GUCM_ADT_2023241.Test
             //Asserts if exception is thrown
             Assert.Throws<ArgumentNullException>(() => castLogic.Add(new Cast()));
         }
+
+        [Test]
+        public void GetAllTest()
+        {
+            //Setup
+            castRepo.Setup(x => x.GetAll()).Returns(new List<Cast>
+            {
+                new Cast {Cast_ID = 1}
+            });
+            //Act
+            castLogic.GetAll();
+            //Assert
+            castRepo.Verify(x => x.GetAll(), Times.Once);
+        }
+
+        [Test]
+        public void AddTest()
+        {
+            //Setup
+
+            //Act
+            castLogic.Add(new Cast { Cast_Name = "Test" });
+            //Assert
+            castRepo.Verify(x => x.Add(It.IsAny<Cast>()), Times.Once);
+        }
+
+        [Test]
+        public void UpdateTest()
+        {
+            //Setup
+
+            //Act
+            castLogic.Update(new Cast());
+            //Assert
+            castRepo.Verify(x => x.Update(It.IsAny<Cast>()), Times.Once);
+        }
+
+        [Test]
+        public void DeleteTest()
+        {
+            //Setup
+
+            //Act
+            castLogic.Delete(new Cast());
+            //Asserts if an item was deleted only once
+            castRepo.Verify(x => x.Delete(It.IsAny<Cast>()), Times.Once);
+        }
     }
 }
