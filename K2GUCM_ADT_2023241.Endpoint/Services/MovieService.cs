@@ -11,8 +11,8 @@ namespace K2GUCM_ADT_2023241.Endpoint.Services
     //Similar structure, logic, and implementation applies in CastService class
     public class MovieService
     {
-        MovieContext context;
-        IMovieLogic logic;
+        private MovieContext context;
+        private IMovieLogic logic;
 
         public MovieService(MovieContext context)
         {
