@@ -88,5 +88,50 @@ namespace K2GUCM_ADT_2023241.Test
             //Asserts if an item was deleted only once
             castRepo.Verify(x => x.Delete(It.IsAny<Cast>()), Times.Once);
         }
+
+        [Test]
+        public void GetByIdTest()
+        {
+            //Setup
+
+            //Act
+            castLogic.GetById(0);
+            //Assert
+            castRepo.Verify(x => x.GetById(It.IsAny<int>()), Times.Once);
+        }
+
+
+        [Test]
+        public void ListAllCastFromAGivenMovieTest()
+        {
+            //Setup
+            castRepo.Setup(x => x.GetAll()).Returns(new List<Cast>
+            {
+                new Cast{ Cast_ID = 1,Cast_Movie_ID = 1,Cast_Name = "Test1"},
+                new Cast{ Cast_ID = 2,Cast_Movie_ID = 2,Cast_Name = "Test2"}
+            });
+            List<Cast> expected = new List<Cast> { new Cast { Cast_ID = 1, Cast_Movie_ID = 1, Cast_Name = "Test1" } };
+            //Act
+            List<Cast> result = (List<Cast>)castLogic.ListAllCastFromAGivenMovie(1);
+            //Assert
+            Assert.AreEqual(expected, result);
+        }
+
+        [Test]
+        public void ListAllNicknamesTest()
+        {
+            //Setup
+            castRepo.Setup(x => x.GetAll()).Returns(new List<Cast>
+            {
+                new Cast{ Cast_ID = 1,Cast_Movie_ID = 1,Cast_Name = "Test1", Cast_Nick = "Test1"},
+                new Cast{ Cast_ID = 2,Cast_Movie_ID = 1,Cast_Name = "Test2", Cast_Nick = "Test2"}
+            });
+
+            List<string> expected = new List<string>() { "Test1", "Test2" };
+            //Act
+            List<string> result = castLogic.ListAllNicknames();
+            //Assert
+            CollectionAssert.AreEquivalent(result, expected);
+        }
     }
 }
