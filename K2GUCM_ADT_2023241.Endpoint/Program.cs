@@ -2,12 +2,13 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using K2GUCM_ADT_2023241.Endpoint;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace K2GUCM_ADT_2023241.Endpoint
+namespace K2GUCM_ADT_2023241.Endpoint2
 {
     public class Program
     {
