@@ -13,17 +13,33 @@ using System.Threading.Tasks;
 
 namespace K2GUCM_ADT_2023241.Test
 {
-    public class Tests
+    [TestFixture]
+    public class CastLogicTests
     {
+        //Mocking
+
+        Mock<ICastRepository> castRepo = new();
+        ICastLogic castLogic;
+
         [SetUp]
         public void Setup()
         {
+            //Sets up a mock repo
+            castRepo.Setup(x => x.GetById(It.IsAny<int>())).Returns(new Cast());
+            castRepo.Setup(x => x.Add(It.Is<Cast>(y => y.Cast_Name == null))).Throws<ArgumentNullException>();
+
+            castLogic = new CastLogic(castRepo.Object);
         }
 
         [Test]
-        public void Test1()
+        public void ThrowsTest()
         {
-            Assert.Pass();
+            //Setup
+
+            //Act
+
+            //Asserts if exception is thrown
+            Assert.Throws<ArgumentNullException>(() => castLogic.Add(new Cast()));
         }
     }
 }
