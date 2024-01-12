@@ -46,23 +46,23 @@ namespace K2GUCM_ADT_2023241.Endpoint
             services.AddTransient<IReviewLogic, ReviewLogic>();
             
             // SignalR
-            services.AddSignalR();
+            //services.AddSignalR();
 
             // Controllers
             services.AddControllers();
-            /*
+            
             // Swagger
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "K2GUCM_ADT_2023241.Endpoint", Version = "v1" });
             });
-            */
+            
         }
 
         //Request processing pipeline
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            /*
+            
             if (env.IsDevelopment())
             {
                 // Development environment settings
@@ -71,7 +71,7 @@ namespace K2GUCM_ADT_2023241.Endpoint
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "K2GUCM_ADT_2023241.Endpoint v1"));
 
             }
-            */
+            
 
             // Exception handling middleware
             app.UseExceptionHandler(c => c.Run(async context =>
@@ -84,11 +84,11 @@ namespace K2GUCM_ADT_2023241.Endpoint
             }));
 
             //CORS configuration
-            app.UseCors((x) => x
-            .AllowCredentials()
-            .AllowAnyMethod()
-            .AllowAnyHeader()
-            .WithOrigins("http://localhost:5278"));
+            //app.UseCors((x) => x
+            //.AllowCredentials()
+            //.AllowAnyMethod()
+            //.AllowAnyHeader()
+            //.WithOrigins("http://localhost:5278"));
             
             // Routing and authorization
             app.UseRouting();
@@ -99,7 +99,7 @@ namespace K2GUCM_ADT_2023241.Endpoint
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-                endpoints.MapHub<SignalRHub>("/hub");
+                //endpoints.MapHub<SignalRHub>("/hub");
             });
         }
     }
